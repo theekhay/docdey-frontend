@@ -1,14 +1,63 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import Home from "../views/Home.vue";
+// import Home from "../views/Home.vue";
+import Dashboard from "@/views/Dashboard.vue";
+import Appointments from "@/views/Appointments.vue";
+import DrugCompatibilityCheck from "@/views/DrugCompatibilityCheck.vue";
+import Drugs from "@/views/Drugs.vue";
+import Login from "@/views/Login.vue";
+import Register from "@/views/Register.vue";
+import MedicationCreate from "@/views/MedicationCreate.vue";
+import MedicationList from "@/views/MedicationList.vue";
+import Specialists from "@/views/Specialists.vue";
 
 Vue.use(VueRouter);
 
 const routes = [
   {
     path: "/",
-    name: "home",
-    component: Home
+    name: "login",
+    component: Login
+  },
+  {
+    path: "/register",
+    name: "register",
+    component: Register
+  },
+  {
+    path: "/dashboard",
+    name: "",
+    component: Dashboard
+  },
+  {
+    path: "/appointments",
+    name: "appointments",
+    component: Appointments
+  },
+  {
+    path: "/drug/check",
+    name: "drug-check",
+    component: DrugCompatibilityCheck
+  },
+  {
+    path: "/drugs",
+    name: "drugs",
+    component: Drugs
+  },
+  {
+    path: "/specialists",
+    name: "specialists",
+    component: Specialists
+  },
+  {
+    path: "/medication/create",
+    name: "createMedication",
+    component: MedicationCreate
+  },
+  {
+    path: "/medication",
+    name: "listMedication",
+    component: MedicationList
   },
   {
     path: "/about",

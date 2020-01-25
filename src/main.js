@@ -4,6 +4,14 @@ import "./registerServiceWorker";
 import router from "./router";
 import store from "./store";
 
+import axios from "axios";
+import Toaster from "v-toaster";
+
+import "v-toaster/dist/v-toaster.css";
+Vue.prototype.$http = axios;
+
+Vue.use(Toaster, { timeout: 5000 });
+
 Vue.config.productionTip = false;
 
 new Vue({
