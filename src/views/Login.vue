@@ -50,10 +50,8 @@ export default {
 
         this.$router.push("/dashboard");
       } catch (e) {
-        console.log(e);
         this.$toaster.error("invalid username/login combination");
       }
-      console.log("here");
     }
   }
 };

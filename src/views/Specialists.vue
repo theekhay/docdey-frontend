@@ -108,7 +108,6 @@ export default {
   methods: {
     getSpecialists: async function() {
       let specialists = await specialistService.getSpecialists();
-      console.log(specialists.data.data);
       this.specialists = specialists.data.data;
     }
   },
