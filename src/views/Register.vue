@@ -95,10 +95,10 @@ export default {
   }
 };
 </script>
-<style>
+<style scoped>
 .login100-form-logo img {
-  width: 150px !important;
-  height: 150px !important;
+  width: 100% !important;
+  height: 100% !important;
   border-radius: 50%;
 }
 </style>
