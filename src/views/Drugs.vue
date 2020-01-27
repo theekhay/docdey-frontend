@@ -32,9 +32,12 @@
                     <thead>
                       <tr>
                         <th class="mdl-data-table__cell--non-numeric">Name</th>
-                        <th class="mdl-data-table__cell--non-numeric">Common brands</th>
+                        <th class="mdl-data-table__cell--non-numeric">
+                          Common brands
+                        </th>
                         <th>Variants</th>
                         <th>Side Effects</th>
+                        <th>Components</th>
                         <th>Dosage</th>
                       </tr>
                     </thead>

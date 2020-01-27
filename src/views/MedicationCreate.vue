@@ -50,7 +50,7 @@
                   </ul>
                 </div>
                 <div class="card-body" id="bar-parent">
-                  <form action="#" id="form_sample_1" class="form-horizontal">
+                  <form @submit.prevent="saveMedicaiton" class="form-horizontal">
                     <div class="form-body">
                       <div class="form-group row">
                         <label class="control-label col-md-3">
@@ -58,11 +58,18 @@
                           <span class="required">*</span>
                         </label>
                         <div class="col-md-5">
-                          <select class="form-control input-height" name="drug" v-model="drug">
+                          <select
+                            class="form-control input-height"
+                            name="drug"
+                            v-model="drug"
+                          >
                             <option value>Select Drug</option>
-                            <option value="Category 1">Miss</option>
-                            <option value="Category 2">Mr.</option>
-                            <option value="Category 3">Mrs.</option>
+                            <option
+                              v-for="drug in drugs"
+                              :key="drug._id"
+                              value="drug.name"
+                              >{{ drug.name }}</option
+                            >
                           </select>
                         </div>
                       </div>
@@ -88,10 +95,17 @@
                         </div>
                       </div>
 
-                      <dosage-time v-for="index in dosage" :key="index"></dosage-time>
+                      <dosage-time
+                        v-for="index in dosage"
+                        :key="index"
+                        :dosageTimeIndex="index"
+                        :time="getDosageTime(index)"
+                      ></dosage-time>
 
                       <div class="form-group row">
-                        <label class="control-label col-md-3">Dosage Start</label>
+                        <label class="control-label col-md-3"
+                          >Dosage Start</label
+                        >
                         <div class="col-md-5">
                           <div
                             class="input-group date form_date"
@@ -144,8 +158,12 @@
                     <div class="form-actions">
                       <div class="row">
                         <div class="offset-md-3 col-md-9">
-                          <button type="submit" class="btn btn-info">Submit</button>
-                          <button type="button" class="btn btn-default">Cancel</button>
+                          <button type="submit" class="btn btn-info">
+                            Submit
+                          </button>
+                          <button type="button" class="btn btn-default">
+                            Cancel
+                          </button>
                         </div>
                       </div>
                     </div>
@@ -162,6 +180,7 @@
 <script>
 import DashboardLayout from "@/layouts/DashboardLayout";
 import DosageTime from "@/components/medication/DosageTime";
+import drugService from "@/services/drug.service";
 export default {
   components: {
     DashboardLayout,
@@ -170,13 +189,30 @@ export default {
   data() {
     return {
       drug: 0,
-      dosage: ""
+      dosage: "",
+      drugs: [],
+      dosageTimes: ["11:20", "09:90"]
     };
   },
   methods: {
     setDosage: function(event) {
       this.dosage = parseInt(event.target.value);
+      //this.setDosageTimes(this.dosage);
+    },
+
+    getDosageTime: function(index) {
+
+      let dosageTimes = this.$store.getters.dosageTimes;
+      return dosageTimes[index] || "";
+    },
+
+    saveMedicaiton: function(){
+      console.log(this.dosageTimes);
     }
+  },
+  async mounted() {
+    let resp = await drugService.getDrugs();
+    this.drugs = resp.data.data;
   }
 };
 </script>

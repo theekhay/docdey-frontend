@@ -29,6 +29,7 @@ export default {
     }
   },
   async created() {
+    this.tip = await this.getTip();
     setInterval(async () => (this.tip = await this.getTip()), 60 * 60 * 100);
   }
 };

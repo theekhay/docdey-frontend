@@ -31,8 +31,9 @@
               </div>
             </li>
 
-            <side-bar-menu name="Drug check" link="/drug/check" icon="widgets" />
+            <side-bar-menu name="Dashboard" link="/dashboard" icon="dashboard" />
             <side-bar-menu name="Appointments" link="/appointments" icon="assignment" />
+            <side-bar-menu name="Drug check" link="/drug/check" icon="widgets" />
             <side-bar-menu name="Specialists" link="/specialists" icon="person" />
             <side-bar-menu name="Drugs" link="/drugs" icon="dashboard" />
 
