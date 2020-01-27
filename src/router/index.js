@@ -6,6 +6,8 @@ import Appointments from "@/views/Appointments.vue";
 import DrugCompatibilityCheck from "@/views/DrugCompatibilityCheck.vue";
 import Drugs from "@/views/Drugs.vue";
 import Login from "@/views/Login.vue";
+import Lock from "@/views/Lock.vue";
+import ResetPassword from "@/views/ResetPassword.vue";
 import Register from "@/views/Register.vue";
 import MedicationCreate from "@/views/MedicationCreate.vue";
 import MedicationList from "@/views/MedicationList.vue";
@@ -13,11 +15,20 @@ import Specialists from "@/views/Specialists.vue";
 
 Vue.use(VueRouter);
 
-const routes = [
-  {
+const routes = [{
     path: "/",
     name: "login",
     component: Login
+  },
+  {
+    path: "/lock",
+    name: "lock",
+    component: Lock
+  },
+  {
+    path: "/password/reset",
+    name: "resetPassword",
+    component: ResetPassword
   },
   {
     path: "/register",
@@ -27,37 +38,62 @@ const routes = [
   {
     path: "/dashboard",
     name: "",
-    component: Dashboard
+    component: Dashboard,
+    meta: {
+      requiresAuth: true
+    }
+
   },
   {
     path: "/appointments",
     name: "appointments",
-    component: Appointments
+    component: Appointments,
+    meta: {
+      requiresAuth: true
+    }
+
   },
   {
     path: "/drug/check",
     name: "drug-check",
-    component: DrugCompatibilityCheck
+    component: DrugCompatibilityCheck,
+    meta: {
+      requiresAuth: true
+    }
+
   },
   {
     path: "/drugs",
     name: "drugs",
-    component: Drugs
+    component: Drugs,
+    meta: {
+      requiresAuth: true
+    }
   },
   {
     path: "/specialists",
     name: "specialists",
-    component: Specialists
+    component: Specialists,
+    meta: {
+      requiresAuth: true
+    }
   },
   {
     path: "/medication/create",
     name: "createMedication",
-    component: MedicationCreate
+    component: MedicationCreate,
+    meta: {
+      requiresAuth: true
+    }
   },
   {
     path: "/medication",
     name: "listMedication",
-    component: MedicationList
+    component: MedicationList,
+    meta: {
+      requiresAuth: true
+    }
+
   },
   {
     path: "/about",
@@ -66,7 +102,7 @@ const routes = [
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () =>
-      import(/* webpackChunkName: "about" */ "../views/About.vue")
+      import( /* webpackChunkName: "about" */ "../views/About.vue")
   }
 ];
 

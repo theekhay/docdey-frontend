@@ -43,7 +43,7 @@
                           <th class="center">Dosage</th>
                           <th class="center">Dosage Start</th>
                           <th class="center">Dosage Ends</th>
-                          <th class="center">Drugs</th>
+                          <th class="center">Dosage Times</th>
                           <!-- <th class="center">Tax</th>
                           <th class="center">Discount</th>
                           <th class="center">Total</th> -->

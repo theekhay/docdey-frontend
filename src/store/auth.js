@@ -5,7 +5,6 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    dosageTimes: [],
     authUser: {},
     authToken: null
   },
@@ -22,32 +21,15 @@ export default new Vuex.Store({
 
     removeAuthToken: function(state) {
       state.authToken = null;
-      localStorage.removeItem("authToken");
-    },
-
-    addDosageTime: function (state, payload) {
-      state.dosageTimes.push(payload);
-    },
-
-    removeDosageTime: function (state, payload) {
-      let index = state.dosageTimes.indexOf(payload);
-      state.dosageTimes.slice(index, 1);
-    },
-
-    updateDosageTime: function(state, payload) {
-      if (!payload.index) {
-        state.dosageTimes.push(payload.time);
-      } else {
-        state.dosageTimes[payload.index] = payload.time;
-      }
+      window.localStorage.removeItem("authToken");
     }
   },
 
   actions: {},
 
   getters: {
-    dosageTimes: function(state) {
-      return state.dosageTimes;
+    authUser: function(state) {
+      return state.authUser;
     }
   },
 

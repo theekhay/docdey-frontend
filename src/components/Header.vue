@@ -37,30 +37,28 @@
             <li>
               <ul class="dropdown-menu-list app-icon-dropdown" data-handle-color="#637283">
                 <li>
-                  <a href="add_patient.html" class="patient-icon">
+                  <router-link to="/medication/create" class="patient-icon">
                     <i class="material-icons">local_hotel</i>
-                    <span class="block">Add Patient</span>
-                  </a>
+                    <span class="block">Medicatio</span>
+                  </router-link>
                 </li>
                 <li>
-                  <a href="email_inbox.html" class="email-icon">
-                    <i class="material-icons">drafts</i>
-                    <span class="block">Email</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="view_appointment.html" class="appoint-icon">
+                  <router-link to="/appointments" class="appoint-icon">
                     <i class="material-icons">assignment</i>
                     <span class="block">Appointment</span>
-                  </a>
+                  </router-link>
+                  <!-- <a href="view_appointment.html" class="appoint-icon">
+                    <i class="material-icons">assignment</i>
+                    <span class="block">Appointment</span>
+                  </a>-->
                 </li>
                 <li>
-                  <a href="all_doctors.html" class="doctor-icon">
+                  <router-link to="/specialists" class="doctor-icon">
                     <i class="material-icons">people</i>
-                    <span class="block">Doctors</span>
-                  </a>
+                    <span class="block">Specialists</span>
+                  </router-link>
                 </li>
-                <li>
+                <!-- <li>
                   <a href="google_maps.html" class="map-icon">
                     <i class="material-icons">map</i>
                     <span class="block">Map</span>
@@ -71,7 +69,7 @@
                     <i class="material-icons">monetization_on</i>
                     <span class="block">Payments</span>
                   </a>
-                </li>
+                </li>-->
               </ul>
             </li>
           </ul>
@@ -300,7 +298,7 @@
                   <i class="fa fa-user"></i> Profile
                 </a>
               </li>
-              <li>
+              <!-- <li>
                 <a href="#">
                   <i class="fa fa-cogs"></i> Settings
                 </a>
@@ -309,12 +307,12 @@
                 <a href="#">
                   <i class="fa fa-question-circle"></i> Help
                 </a>
-              </li>
+              </li> -->
               <li class="divider"></li>
               <li>
-                <a href="lock_screen.html">
+                <router-link to="/lock">
                   <i class="fa fa-lock"></i> Lock
-                </a>
+                </router-link>
               </li>
               <li>
                 <router-link to="/#" @click.prevent="logout">
@@ -342,10 +340,10 @@
 <script>
 export default {
   methods: {
-    logout: () => {
+    logout: function() {
+      this.$store.commit("removeAuthToken");
       this.$router.push("/login");
-
     }
   }
-}
+};
 </script>

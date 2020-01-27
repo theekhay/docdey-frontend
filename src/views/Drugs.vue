@@ -27,7 +27,7 @@
                 </div>
                 <div class="card-body">
                   <table
-                    class="mdl-data-table ml-table-bordered mdl-js-data-table mdl-data-table--selectable is-upgraded"
+                    class="mdl-data-table ml-table-bordered mdl-js-data-table  is-upgraded"
                   >
                     <thead>
                       <tr>
@@ -42,6 +42,7 @@
                       </tr>
                     </thead>
                     <tbody>
+                      <!-- <td></td> -->
                       <Drug
                         v-for="drug in drugs"
                         :key="drug._id"

@@ -23,7 +23,7 @@
             <button type="submit" class="login100-form-btn">Login</button>
           </div>
           <div class="text-center p-t-30">
-            <a class="txt1" href="forgot_password.html">Forgot Password?</a>
+            <router-link class="txt1" to="/password/reset">Forgot Password?</router-link>
           </div>
         </form>
       </div>
@@ -45,8 +45,8 @@ export default {
         let resp = await authService.authenticateUser(this.credentials);
         let { user, token } = resp.data;
 
-        localStorage.setItem("authToken", token);
-        localStorage.setItem("authUser", user);
+        this.$store.commit("setAuthUser", user);
+        this.$store.commit("setAuthToken", token);
 
         this.$router.push("/dashboard");
       } catch (e) {

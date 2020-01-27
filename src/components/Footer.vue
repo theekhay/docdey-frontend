@@ -1,8 +1,8 @@
 <template>
   <div class="page-footer">
     <div class="page-footer-inner">
-      2018 &copy; Sunray Template By
-      <a href="mailto:redstartheme@gmail.com" target="_top" class="makerCss"
+      2020 &copy; Dodey
+      <a href="mailto:boegho@gmail.com" target="_top" class="makerCss"
         >Redstar Theme</a
       >
     </div>
