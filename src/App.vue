@@ -35,17 +35,19 @@ export default {
       let resp = await medicationService.getActiveMedication();
       let dosageTimes = resp.data.data;
 
-      let activeDosageTimes = dosageTimes.filter(
-        time => time == this.lastCheckTime
-      );
+      if (dosageTimes.length > 0) {
+        let activeDosageTimes = dosageTimes.filter(
+          time => time == this.lastCheckTime
+        );
 
-      console.log("activeDosageTimes");
-      console.log(activeDosageTimes);
+        console.log("activeDosageTimes");
+        console.log(activeDosageTimes);
 
-      if (activeDosageTimes.length > 0) {
-        this.hasMeditation = true;
-      } else {
-        this.hasMeditation = false;
+        if (activeDosageTimes.length > 0) {
+          this.hasMeditation = true;
+        } else {
+          this.hasMeditation = false;
+        }
       }
     }
   },
