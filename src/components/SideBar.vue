@@ -25,7 +25,7 @@
                   />
                 </div>
                 <div class="pull-left info">
-                  <p>Dr. Emily</p>
+                  <p>{{ showName() }}</p>
                   <small>Admin</small>
                 </div>
               </div>
@@ -69,6 +69,12 @@ import SideBarMenu from "@/components/SideBarMenu";
 export default {
   components: {
     SideBarMenu
+  },
+  methods: {
+    showName: function(){
+      let user =  localStorage.getItem("authUser");
+      return JSON.parse(user).lastName;
+    }
   }
 };
 </script>

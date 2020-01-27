@@ -35,11 +35,14 @@
               </p>
             </li>
             <li>
-              <ul class="dropdown-menu-list app-icon-dropdown" data-handle-color="#637283">
+              <ul
+                class="dropdown-menu-list app-icon-dropdown"
+                data-handle-color="#637283"
+              >
                 <li>
                   <router-link to="/medication/create" class="patient-icon">
                     <i class="material-icons">local_hotel</i>
-                    <span class="block">Medicatio</span>
+                    <span class="block">Medication</span>
                   </router-link>
                 </li>
                 <li>

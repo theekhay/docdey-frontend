@@ -3,7 +3,7 @@
     <div class="page-footer-inner">
       2020 &copy; Dodey
       <a href="mailto:boegho@gmail.com" target="_top" class="makerCss"
-        >Redstar Theme</a
+        >.</a
       >
     </div>
     <div class="scroll-to-top">

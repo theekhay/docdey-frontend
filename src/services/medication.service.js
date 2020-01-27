@@ -11,5 +11,10 @@ export default {
   getMedications: function() {
     // Use vue-resource or any other http library to send your request
     return baseService.get(`${resource}/`);
+  },
+
+  getActiveMedication: function() {
+    // Use vue-resource or any other http library to send your request
+    return baseService.get(`${resource}/getActiveMedication`);
   }
 };
