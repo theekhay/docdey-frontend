@@ -7,7 +7,7 @@
           <input
             class="form-control input-height"
             @change="setDosageTime()"
-            type="text"
+            type="time"
             :value="time"
             ref="input"
             id="example-time-input"

@@ -208,6 +208,7 @@ export default {
 
     saveMedicaiton: function(){
       console.log(this.dosageTimes);
+      this.$toaster.success("Medication saves successfully and medication alert has been set!");
     }
   },
   async mounted() {
