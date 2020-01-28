@@ -13,8 +13,14 @@ export default {
     return baseService.get(`${resource}/`);
   },
 
-  getActiveMedication: function() {
+  createMedication: function(medication) {
     // Use vue-resource or any other http library to send your request
-    return baseService.get(`${resource}/getActiveMedication`);
+    return baseService.post(`${resource}/create`, medication);
+  },
+
+  getActiveMedication: function() {
+    const user = JSON.parse(localStorage.getItem("authUser") );
+    // Use vue-resource or any other http library to send your request
+    return baseService.get(`${resource}/getActiveMedication/${user._id}`);
   }
 };

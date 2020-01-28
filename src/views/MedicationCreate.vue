@@ -61,15 +61,10 @@
                           <select
                             class="form-control input-height"
                             name="drug"
-                            v-model="drug"
+                            v-model="medication.drug"
                           >
                             <option value>Select Drug</option>
-                            <option
-                              v-for="drug in drugs"
-                              :key="drug._id"
-                              value="drug.name"
-                              >{{ drug.name }}</option
-                            >
+                            <option v-for="drug in drugs" :key="drug._id">{{ drug.name }}</option>
                           </select>
                         </div>
                       </div>
@@ -83,55 +78,42 @@
                           <select
                             class="form-control input-height"
                             name="dosage"
-                            v-model="dosage"
+                            v-model="medication.dosage"
                             @change="setDosage($event)"
                           >
                             <option value>Select Dosage</option>
                             <option value="1">once daily</option>
                             <option value="2">twice daily</option>
                             <option value="3">thrice daily</option>
-                            <option value="0">others</option>
+                            <!-- <option value="0">others</option> -->
                           </select>
                         </div>
                       </div>
 
-                      <dosage-time
+                      <!-- <dosage-time
                         v-for="index in dosage"
                         :key="index"
                         :dosageTimeIndex="index"
                         :time="getDosageTime(index)"
-                      ></dosage-time>
+                      ></dosage-time>-->
 
-                      <div class="form-group row">
-                        <label class="control-label col-md-3"
-                          >Dosage Start</label
-                        >
+                      <div v-for="index in medication.dosage" :key="index" class="form-group row">
+                        <label class="control-label col-md-3">set time</label>
                         <div class="col-md-5">
-                          <div
-                            class="input-group date form_date"
-                            data-date
-                            data-date-format="dd MM yyyy"
-                            data-link-field="dtp_input2"
-                            data-link-format="yyyy-mm-dd"
-                          >
-                            <input
-                              class="form-control input-height"
-                              size="16"
-                              placeholder="date of appointment"
-                              type="text"
-                              value
-                            />
-                            <span class="input-group-addon">
-                              <span class="fa fa-calendar"></span>
-                            </span>
+                          <div class="row">
+                            <div class="col-md-12">
+                              <input
+                                class="form-control input-height"
+                                type="time"
+                                ref="dosageTimes"
+                              />
+                            </div>
                           </div>
-                          <input type="hidden" id="dtp_input2" value />
                         </div>
                       </div>
+
                       <div class="form-group row">
-                        <label class="control-label col-md-3"
-                          >Dosage Ends</label
-                        >
+                        <label class="control-label col-md-3">Dosage Start</label>
                         <div class="col-md-5">
                           <div
                             class="input-group date form_date"
@@ -145,7 +127,31 @@
                               size="16"
                               placeholder="date of appointment"
                               type="date"
-                              value
+                              v-model="medication.dosageStart"
+                            />
+                            <span class="input-group-addon">
+                              <span class="fa fa-calendar"></span>
+                            </span>
+                          </div>
+                          <input type="hidden" id="dtp_input2" value />
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label class="control-label col-md-3">Dosage Ends</label>
+                        <div class="col-md-5">
+                          <div
+                            class="input-group date form_date"
+                            data-date
+                            data-date-format="dd MM yyyy"
+                            data-link-field="dtp_input2"
+                            data-link-format="yyyy-mm-dd"
+                          >
+                            <input
+                              class="form-control input-height"
+                              size="16"
+                              placeholder="date of appointment"
+                              type="date"
+                              v-model="medication.dosageEnd"
                             />
                             <span class="input-group-addon">
                               <span class="fa fa-calendar"></span>
@@ -158,12 +164,8 @@
                     <div class="form-actions">
                       <div class="row">
                         <div class="offset-md-3 col-md-9">
-                          <button type="submit" class="btn btn-info">
-                            Submit
-                          </button>
-                          <button type="button" class="btn btn-default">
-                            Cancel
-                          </button>
+                          <button type="submit" class="btn btn-info">Submit</button>
+                          <button type="button" class="btn btn-default">Cancel</button>
                         </div>
                       </div>
                     </div>
@@ -179,41 +181,73 @@
 </template>
 <script>
 import DashboardLayout from "@/layouts/DashboardLayout";
-import DosageTime from "@/components/medication/DosageTime";
+//import DosageTime from "@/components/medication/DosageTime";
 import drugService from "@/services/drug.service";
+import medicationService from "@/services/medication.service";
+
 export default {
   components: {
-    DashboardLayout,
-    DosageTime
+    DashboardLayout
+    //DosageTime
   },
   data() {
     return {
-      drug: 0,
-      dosage: "",
       drugs: [],
-      dosageTimes: ["11:20", "09:90"]
+      dosageTimes: [],
+      medication: {}
     };
   },
   methods: {
     setDosage: function(event) {
-      this.dosage = parseInt(event.target.value);
-      //this.setDosageTimes(this.dosage);
+      this.medication.dosage = parseInt(event.target.value);
+      //this.setDosageTimes(this.mediaction.dosage);
     },
 
     getDosageTime: function(index) {
-
       let dosageTimes = this.$store.getters.dosageTimes;
       return dosageTimes[index] || "";
     },
 
-    saveMedicaiton: function(){
-      console.log(this.dosageTimes);
-      this.$toaster.success("Medication saves successfully and medication alert has been set!");
+    saveMedicaiton: async function() {
+      let dosageTimes = [];
+
+      let drugs = [
+        {
+          name: this.medication.drug,
+          id: "876789"
+        }
+      ];
+
+      for (let i = 0; i < this.medication.dosage; i++) {
+        let dosageTime = this.$refs.dosageTimes[i].value;
+        dosageTimes.push(dosageTime);
+      }
+
+      let authUser = JSON.parse(localStorage.getItem("authUser"));
+      console.log(authUser);
+      this.medication.userId = authUser._id;
+      this.medication.dosageTimes = dosageTimes;
+      this.medication.drugs = drugs;
+
+      try {
+        await medicationService.createMedication(this.medication);
+        this.$toaster.success("Medication has been saved and reminder has been set! stay Healthy ");
+
+      } catch (e) {
+        console.log(e);
+        this.$toaster.error("There was an error saving this medication");
+      }
+
+      console.log(this.medication);
     }
   },
   async mounted() {
-    let resp = await drugService.getDrugs();
-    this.drugs = resp.data.data;
+    try {
+      let resp = await drugService.getDrugs();
+      this.drugs = resp.data.data;
+    } catch (e) {
+      this.$toaster.warning("uable to retreive list of drugs");
+    }
   }
 };
 </script>
