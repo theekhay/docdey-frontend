@@ -5,7 +5,7 @@
       <div class="col-md-12 col-sm-6">
         <div class="card card-box">
           <div class="card-head">
-            <header>Check Drug Interaction</header>
+            <header> Drug Interaction</header>
             <button
               id="panel-button8"
               class="mdl-button mdl-js-button mdl-button--icon pull-right"

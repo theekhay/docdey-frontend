@@ -5,8 +5,9 @@
       <!-- logo start -->
       <div class="page-logo">
         <a href="index.html">
-          <img alt src="@/assets/img/logo.png" />
-          <span class="logo-default">Docdey</span>
+          <img alt src="@/assets/img/docdey-logo-v4.jpg" style="width:15%; height:15%" />
+          <!-- <img alt src="@/assets/img/logo.png" /> -->
+          <span class="logo-default"> Docdey</span>
         </a>
       </div>
       <!-- logo end -->

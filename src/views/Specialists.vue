@@ -11,7 +11,7 @@
               <ol class="breadcrumb page-breadcrumb pull-right">
                 <li>
                   <i class="fa fa-home"></i>&nbsp;
-                  <a class="parent-item" href="index.html">Home</a>&nbsp;
+                  <router-link to="/dashboard">Home</router-link>&nbsp;
                   <i class="fa fa-angle-right"></i>
                 </li>
                 <li>

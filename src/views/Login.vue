@@ -4,7 +4,7 @@
       <div class="wrap-login100">
         <form @submit.prevent="login" class="login100-form validate-form">
           <span class="login100-form-logo">
-            <img alt src="../assets/img/docdey-logo.jpg" />
+            <img alt src="../assets/img/docdey-logo-v2.jpg" />
           </span>
           <span class="login100-form-title p-b-34 p-t-27">Log in</span>
           <div class="wrap-input100 validate-input" data-validate="Enter username">

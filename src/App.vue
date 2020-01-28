@@ -1,18 +1,28 @@
 <template>
   <div id="app">
-    <!-- <audio >
-      <source src="@/assets/audio/alarm1.mp3" type="audio/mpeg" />Your browser does not support the audio element.
-    </audio>-->
+    <modal v-if="showModal" @close="closeModal">
+    <!--
+      you can use custom content here to overwrite
+      default content
+    -->
+    <!-- <h3 slot="header">custom header</h3> -->
+  </modal>
     <router-view />
   </div>
 </template>
 <script>
 import medicationService from "@/services/medication.service";
+import modal from "@/components/modals/MedicationAlert";
+
 const moment = require("moment");
 
 export default {
+  components: {
+    modal
+  },
   data() {
     return {
+      showModal: false,
       hasMeditation: false,
       lastCheckTime: moment().format("HH:mm")
     };
@@ -36,19 +46,28 @@ export default {
       let dosageTimes = resp.data.data;
 
       if (dosageTimes.length > 0) {
-        let activeDosageTimes = dosageTimes.filter(
-          time => time == this.lastCheckTime
-        );
+
+        let activeDosageTimes = dosageTimes.reduce((acc, dosage) => {
+            console.log(dosage)
+            if (!(dosage.time in acc)) acc = [...acc, ...dosage.dosageTimes] //acc.concat(dosage.dosageTimes);
+            return acc;
+        }, []);
 
         console.log("activeDosageTimes");
         console.log(activeDosageTimes);
 
-        if (activeDosageTimes.length > 0) {
+        if (activeDosageTimes.includes(this.lastCheckTime) ) {
           this.hasMeditation = true;
+          this.showModal = true;
         } else {
           this.hasMeditation = false;
         }
       }
+    },
+
+    closeModal: function(){
+      this.showModal = false;
+      this.hasMeditation = false;
     }
   },
   watch: {
@@ -57,7 +76,7 @@ export default {
     }
   },
   async created() {
-    setInterval(() => this.checkMedication(), 1000 * 60);
+    setInterval(() => this.checkMedication(), 1000 * 6);
   }
 };
 </script>

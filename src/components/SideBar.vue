@@ -19,7 +19,7 @@
               <div class="user-panel">
                 <div class="pull-left image">
                   <img
-                    src="@/assets/img/dp.jpg"
+                    src="@/assets/img/docdey-logo-v2.jpg"
                     class="img-circle user-img-circle"
                     alt="User Image"
                   />

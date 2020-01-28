@@ -11,7 +11,7 @@
               <ol class="breadcrumb page-breadcrumb pull-right">
                 <li>
                   <i class="fa fa-home"></i>&nbsp;
-                  <a class="parent-item" href="index.html">Home</a>&nbsp;
+                  <router-link to="/dashboard">Home</router-link>&nbsp;
                   <i class="fa fa-angle-right"></i>
                 </li>
                 <li>
@@ -232,7 +232,7 @@ export default {
       try {
         await medicationService.createMedication(this.medication);
         this.$toaster.success("Medication has been saved and reminder has been set! stay Healthy ");
-
+        this.medication = {};
       } catch (e) {
         console.log(e);
         this.$toaster.error("There was an error saving this medication");
