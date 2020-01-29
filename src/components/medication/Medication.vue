@@ -38,9 +38,10 @@ export default {
       let dosageEnd = moment(this.medication.dosageEnd);
       let text;
 
-      if (now.isBetween(dosageStart, dosageEnd, "days")) text = "active";
-      else if (now.isAfter(dosageEnd)) text = "completed";
-      else text = "awaiting start";
+      if (now.isSameOrAfter(dosageStart) && now.isSameOrBefore(dosageEnd))
+        text = "Active";
+      else if (now.isAfter(dosageEnd, "days")) text = "Completed";
+      else text = "Awaiting Start";
 
       return text;
     },
@@ -50,7 +51,7 @@ export default {
       let dosageEnd = moment(this.medication.dosageEnd);
       let statusClass;
 
-      if (now.isBetween(dosageStart, dosageEnd, "days"))
+      if (now.isSameOrAfter(dosageStart) && now.isSameOrBefore(dosageEnd))
         statusClass = "text-success";
       else if (now.isAfter(dosageEnd)) statusClass = "text-danger";
       else statusClass = "text-secondary";
