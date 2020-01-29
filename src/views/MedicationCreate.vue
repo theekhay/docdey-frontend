@@ -221,8 +221,8 @@ export default {
 
       //medication should not be in the past
       if (
-        moment().isAfter(moment(this.medication.dosageStart)) ||
-        moment().isAfter(moment(this.medication.dosageEnd))
+        moment().isAfter(moment(this.medication.dosageStart, "days")) ||
+        moment().isAfter(moment(this.medication.dosageEnd, "days"))
       ) {
         this.$toaster.warning(
           "Medication doage start or end dates cannot be in the past"
@@ -232,7 +232,7 @@ export default {
 
       if (
         moment(this.medication.dosageStart).isAfter(
-          moment(this.medication.dosageEnd)
+          moment(this.medication.dosageEnd, "days")
         )
       ) {
         this.$toaster.warning(
