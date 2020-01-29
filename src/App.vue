@@ -48,8 +48,7 @@ export default {
       if (dosageTimes.length > 0) {
 
         let activeDosageTimes = dosageTimes.reduce((acc, dosage) => {
-            console.log(dosage)
-            if (!(dosage.time in acc)) acc = [...acc, ...dosage.dosageTimes] //acc.concat(dosage.dosageTimes);
+            if (!(dosage.time in acc)) acc = [...acc, ...dosage.dosageTimes]
             return acc;
         }, []);
 
@@ -61,6 +60,7 @@ export default {
           this.showModal = true;
         } else {
           this.hasMeditation = false;
+          this.showModal = false;
         }
       }
     },
@@ -76,7 +76,7 @@ export default {
     }
   },
   async created() {
-    setInterval(() => this.checkMedication(), 1000 * 6);
+    setInterval(() => this.checkMedication(), 1000 * 60);
   }
 };
 </script>
