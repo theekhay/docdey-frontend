@@ -125,7 +125,6 @@
                             <input
                               class="form-control input-height"
                               size="16"
-                              placeholder="date of appointment"
                               type="date"
                               v-model="medication.dosageStart"
                             />
@@ -149,7 +148,6 @@
                             <input
                               class="form-control input-height"
                               size="16"
-                              placeholder="date of appointment"
                               type="date"
                               v-model="medication.dosageEnd"
                             />
@@ -164,8 +162,10 @@
                     <div class="form-actions">
                       <div class="row">
                         <div class="offset-md-3 col-md-9">
-                          <button type="submit" class="btn btn-info">Submit</button>
-                          <button type="button" class="btn btn-default">Cancel</button>
+                          <button type="submit" class="btn btn-info">Submit</button>&nbsp;&nbsp;
+                          <router-link to="/medication">
+                            <button type="button" class="btn btn-danger">Cancel</button>
+                          </router-link>
                         </div>
                       </div>
                     </div>
@@ -184,6 +184,7 @@ import DashboardLayout from "@/layouts/DashboardLayout";
 //import DosageTime from "@/components/medication/DosageTime";
 import drugService from "@/services/drug.service";
 import medicationService from "@/services/medication.service";
+import moment from "moment";
 
 export default {
   components: {
@@ -218,20 +219,43 @@ export default {
         }
       ];
 
+      //medication should not be in the past
+      if (
+        moment().isAfter(moment(this.medication.dosageStart)) ||
+        moment().isAfter(moment(this.medication.dosageEnd))
+      ) {
+        this.$toaster.warning(
+          "Medication doage start or end dates cannot be in the past"
+        );
+        throw Error();
+      }
+
+      if (
+        moment(this.medication.dosageStart).isAfter(
+          moment(this.medication.dosageEnd)
+        )
+      ) {
+        this.$toaster.warning(
+          "Invalid medication range. Medication start cannot be greater than medication end"
+        );
+        throw Error();
+      }
+
       for (let i = 0; i < this.medication.dosage; i++) {
         let dosageTime = this.$refs.dosageTimes[i].value;
         dosageTimes.push(dosageTime);
       }
 
       let authUser = JSON.parse(localStorage.getItem("authUser"));
-      console.log(authUser);
       this.medication.userId = authUser._id;
       this.medication.dosageTimes = dosageTimes;
       this.medication.drugs = drugs;
 
       try {
         await medicationService.createMedication(this.medication);
-        this.$toaster.success("Medication has been saved and reminder has been set! stay Healthy ");
+        this.$toaster.success(
+          "Medication has been saved and reminder has been set! stay Healthy "
+        );
         this.medication = {};
       } catch (e) {
         console.log(e);

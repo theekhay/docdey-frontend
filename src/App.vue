@@ -1,12 +1,12 @@
 <template>
   <div id="app">
     <modal v-if="showModal" @close="closeModal">
-    <!--
+      <!--
       you can use custom content here to overwrite
       default content
-    -->
-    <!-- <h3 slot="header">custom header</h3> -->
-  </modal>
+      -->
+      <!-- <h3 slot="header">custom header</h3> -->
+    </modal>
     <router-view />
   </div>
 </template>
@@ -24,16 +24,14 @@ export default {
     return {
       showModal: false,
       hasMeditation: false,
-      lastCheckTime: moment().format("HH:mm")
+      lastCheckTime: moment().format("HH:mm"),
+      alarm: null
     };
   },
 
   methods: {
     alertUser: function() {
-      let alarm = new Audio(
-        "http://soundbible.com/mp3/analog-watch-alarm_daniel-simion.mp3"
-      );
-      alarm.play();
+      this.alarm.play();
     },
 
     checkMedication: async function() {
@@ -46,16 +44,15 @@ export default {
       let dosageTimes = resp.data.data;
 
       if (dosageTimes.length > 0) {
-
         let activeDosageTimes = dosageTimes.reduce((acc, dosage) => {
-            if (!(dosage.time in acc)) acc = [...acc, ...dosage.dosageTimes]
-            return acc;
+          if (!(dosage.time in acc)) acc = [...acc, ...dosage.dosageTimes];
+          return acc;
         }, []);
 
         console.log("activeDosageTimes");
         console.log(activeDosageTimes);
 
-        if (activeDosageTimes.includes(this.lastCheckTime) ) {
+        if (activeDosageTimes.includes(this.lastCheckTime)) {
           this.hasMeditation = true;
           this.showModal = true;
         } else {
@@ -65,9 +62,10 @@ export default {
       }
     },
 
-    closeModal: function(){
+    closeModal: function() {
       this.showModal = false;
       this.hasMeditation = false;
+      this.alarm.pause();
     }
   },
   watch: {
@@ -76,6 +74,9 @@ export default {
     }
   },
   async created() {
+    this.alarm = new Audio(
+      "http://soundbible.com/mp3/analog-watch-alarm_daniel-simion.mp3"
+    );
     setInterval(() => this.checkMedication(), 1000 * 60);
   }
 };
