@@ -72,7 +72,7 @@ export default {
   },
   methods: {
     showName: function(){
-      let user =  localStorage.getItem("authUser");
+      let user = localStorage.getItem("authUser");
       return JSON.parse(user).lastName;
     }
   }

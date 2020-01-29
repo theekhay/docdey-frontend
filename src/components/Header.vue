@@ -319,9 +319,9 @@
                 </router-link>
               </li>
               <li>
-                <router-link to="/#" @click.prevent="logout">
+                <a href="/#" @click.prevent="signout">
                   <i class="fa fa-sign-out"></i> Log Out
-                </router-link>
+                </a>
               </li>
             </ul>
           </li>
@@ -344,9 +344,9 @@
 <script>
 export default {
   methods: {
-    logout: function() {
-      this.$store.commit("removeAuthToken");
-      this.$router.push("/login");
+    signout: function() {
+      this.$store.commit("removeAuth");
+      this.$router.push("/");
     }
   }
 };

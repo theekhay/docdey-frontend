@@ -19,9 +19,11 @@ export default new Vuex.Store({
       localStorage.setItem("authToken", state.authToken);
     },
 
-    removeAuthToken: function(state) {
+    removeAuth: function(state) {
       state.authToken = null;
-      window.localStorage.removeItem("authToken");
+      state.authUser = {};
+      localStorage.removeItem("authToken");
+      localStorage.removeItem("authUser");
     }
   },
 
