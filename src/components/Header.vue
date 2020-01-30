@@ -5,9 +5,9 @@
       <!-- logo start -->
       <div class="page-logo">
         <a href="index.html">
-          <img alt src="@/assets/img/docdey-logo-v4.jpg" style="width:15%; height:15%;margin-top: 5px" class="pull-left" />
+          <img alt src="@/assets/img/docdey-logo-v4.jpg" style="width:15%; height:15%;" class="pull-left" />
           <!-- <img alt src="@/assets/img/logo.png" /> -->
-          <span class="logo-default pull-left"> Docdey</span>
+          <span style="margin: -1% 0; display: block;" class="logo-default pull-left"> Docdey</span>
         </a>
       </div>
       <!-- logo end -->

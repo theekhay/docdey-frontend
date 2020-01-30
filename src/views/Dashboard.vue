@@ -21,7 +21,7 @@
           <!-- start widget -->
           <div class="state-overview">
             <div class="row">
-              <div class="col-xl-4 col-md-6 col-12">
+              <div class="col-xl-6 col-md-6 col-12">
                 <div class="info-box bg-white">
                   <span class="info-box-icon push-bottom bg-primary">
                     <i class="material-icons">group</i>
@@ -39,7 +39,7 @@
                 <!-- /.info-box -->
               </div>
               <!-- /.col -->
-              <div class="col-xl-4 col-md-6 col-12">
+              <div class="col-xl-6 col-md-6 col-12">
                 <div class="info-box bg-white">
                   <span class="info-box-icon push-bottom bg-warning">
                     <i class="material-icons">person</i>
