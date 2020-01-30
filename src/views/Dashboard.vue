@@ -27,12 +27,12 @@
                     <i class="material-icons">group</i>
                   </span>
                   <div class="info-box-content">
-                    <span class="info-box-text">Appointments</span>
-                    <span class="info-box-number">450</span>
+                    <span class="info-box-text">Next Appointment</span>
+                    <span class="info-box-number"> 2, Feb 2020</span>
                     <div class="progress">
                       <div class="progress-bar bg-primary" style="width: 45%"></div>
                     </div>
-                    <span class="progress-description">45% Increase in 28 Days</span>
+                    <span class="progress-description">2 Days away</span>
                   </div>
                   <!-- /.info-box-content -->
                 </div>
@@ -45,35 +45,19 @@
                     <i class="material-icons">person</i>
                   </span>
                   <div class="info-box-content">
-                    <span class="info-box-text">Medications</span>
-                    <span class="info-box-number">155</span>
+                    <span class="info-box-text">Next Medication</span>
+                    <span class="info-box-number">12:00 pm</span>
                     <div class="progress">
                       <div class="progress-bar bg-warning" style="width: 40%"></div>
                     </div>
-                    <span class="progress-description">40% Increase in 28 Days</span>
+                    <span class="progress-description">2 Hrs away</span>
                   </div>
                   <!-- /.info-box-content -->
                 </div>
                 <!-- /.info-box -->
               </div>
               <!-- /.col -->
-              <div class="col-xl-4 col-md-6 col-12">
-                <div class="info-box bg-white">
-                  <span class="info-box-icon push-bottom bg-success">
-                    <i class="material-icons">content_cut</i>
-                  </span>
-                  <div class="info-box-content">
-                    <span class="info-box-text">Specialists</span>
-                    <span class="info-box-number">52</span>
-                    <div class="progress">
-                      <div class="progress-bar bg-success" style="width: 85%"></div>
-                    </div>
-                    <span class="progress-description">85% Increase in 28 Days</span>
-                  </div>
-                  <!-- /.info-box-content -->
-                </div>
-                <!-- /.info-box -->
-              </div>
+              
               
               <!-- /.col -->
             </div>
