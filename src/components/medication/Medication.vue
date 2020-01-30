@@ -1,9 +1,9 @@
 <template>
   <tr class="odd gradeX">
     <td class="center">{{drugs()}}</td>
-    <td class="center">{{medication.dosage}}</td>
-    <td class="center">{{medication.dosageStart}}</td>
-    <td class="center">{{medication.dosageEnd}}</td>
+    <!-- <td class="center">{{medication.dosage}}</td> -->
+    <td class="center">{{ formatDate(medication.dosageStart) }}</td>
+    <td class="center">{{ formatDate(medication.dosageEnd) }}</td>
     <td class="center">{{medication.dosageTimes.join(", ")}}</td>
     <td class="center" :class="getStatusClass">{{ getStatusText }}</td>
   </tr>
@@ -29,6 +29,10 @@ export default {
   methods: {
     drugs: function() {
       return this.medication.drugs.map(drug => drug.name).join(", ");
+    },
+    formatDate: function(date) {
+      console.log(date);
+      return moment(date).format("YYYY-MM-DD");
     }
   },
   computed: {
@@ -58,6 +62,7 @@ export default {
 
       return statusClass;
     }
+    
   }
 };
 </script>

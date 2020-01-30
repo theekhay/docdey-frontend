@@ -7,12 +7,12 @@
     <td class="left">{{ specialistInfo.department }}</td>
     <td class="left">{{ specialistInfo.role }}</td>
     <td class="left">{{ specialistInfo.yearsOfExperience }}</td>
-    <td>
+    <!-- <td>
       <a href="tel:4444565756">{{ specialistInfo.phoneNumber }}</a>
     </td>
     <td>
       <a href="mailto:shuxer@gmail.com">{{ specialistInfo.email }}</a>
-    </td>
+    </td> -->
     <!-- <td class="left">22 Feb 2000</td> -->
     <td class="center">
       <a href="edit_doctor.html" class="btn btn-tbl-edit btn-xs">

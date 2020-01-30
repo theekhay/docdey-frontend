@@ -5,9 +5,9 @@
       <!-- logo start -->
       <div class="page-logo">
         <a href="index.html">
-          <img alt src="@/assets/img/docdey-logo-v4.jpg" style="width:15%; height:15%" />
+          <img alt src="@/assets/img/docdey-logo-v4.jpg" style="width:15%; height:15%;margin-top: 5px" class="pull-left" />
           <!-- <img alt src="@/assets/img/logo.png" /> -->
-          <span class="logo-default"> Docdey</span>
+          <span class="logo-default pull-left"> Docdey</span>
         </a>
       </div>
       <!-- logo end -->
@@ -18,7 +18,7 @@
           </a>
         </li>
       </ul>
-      <ul class="nav navbar-nav navbar-left in">
+      <!-- <ul class="nav navbar-nav navbar-left in">
         <li class="dropdown dropdown-extended dropdown-notification">
           <a
             href="javascript:;"
@@ -51,10 +51,10 @@
                     <i class="material-icons">assignment</i>
                     <span class="block">Appointment</span>
                   </router-link>
-                  <!-- <a href="view_appointment.html" class="appoint-icon">
+                  <a href="view_appointment.html" class="appoint-icon">
                     <i class="material-icons">assignment</i>
                     <span class="block">Appointment</span>
-                  </a>-->
+                  </a>
                 </li>
                 <li>
                   <router-link to="/specialists" class="doctor-icon">
@@ -62,7 +62,7 @@
                     <span class="block">Specialists</span>
                   </router-link>
                 </li>
-                <!-- <li>
+                <li>
                   <a href="google_maps.html" class="map-icon">
                     <i class="material-icons">map</i>
                     <span class="block">Map</span>
@@ -73,12 +73,12 @@
                     <i class="material-icons">monetization_on</i>
                     <span class="block">Payments</span>
                   </a>
-                </li>-->
+                </li>
               </ul>
             </li>
           </ul>
         </li>
-      </ul>
+      </ul> -->
       <ul class="nav navbar-nav navbar-left in">
         <!-- start full screen button -->
         <!-- <li>

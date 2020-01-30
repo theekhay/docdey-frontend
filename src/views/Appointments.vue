@@ -27,11 +27,11 @@
               <div class="card card-box">
                 <div class="card-head">
                   <header></header>
-                  <div class="tools">
+                  <!-- <div class="tools">
                     <a class="fa fa-repeat btn-color box-refresh" href="javascript:;"></a>
                     <a class="t-collapse btn-color fa fa-chevron-down" href="javascript:;"></a>
                     <a class="t-close btn-color fa fa-times" href="javascript:;"></a>
-                  </div>
+                  </div> -->
                 </div>
                 <div class="card-body">
                   <div class="table-scrollable">
@@ -44,11 +44,10 @@
                         <tr>
                           <th></th>
                           <th>Name</th>
-                          <th>Email</th>
+                          <!-- <th>Email</th> -->
                           <th>Date Of Appointment</th>
-                          <th>From</th>
-                          <th>To</th>
-                          <th>Mobile</th>
+                          <th>Duration</th>
+                          <!-- <th>Mobile</th> -->
                           <th>Consulting Doctor</th>
                           <th>Injury/Condition</th>
                           <th>Action</th>

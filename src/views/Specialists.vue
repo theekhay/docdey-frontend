@@ -6,7 +6,7 @@
           <div class="page-bar">
             <div class="page-title-breadcrumb">
               <div class="pull-left">
-                <div class="page-title">Doctor List</div>
+                <div class="page-title">Specialists</div>
               </div>
               <ol class="breadcrumb page-breadcrumb pull-right">
                 <li>
@@ -14,11 +14,7 @@
                   <router-link to="/dashboard">Home</router-link>&nbsp;
                   <i class="fa fa-angle-right"></i>
                 </li>
-                <li>
-                  <a class="parent-item" href>Doctors</a>&nbsp;
-                  <i class="fa fa-angle-right"></i>
-                </li>
-                <li class="active">Doctor List</li>
+                <li class="active">Specialists</li>
               </ol>
             </div>
           </div>
@@ -60,10 +56,10 @@
                                     <th></th>
                                     <th>Name</th>
                                     <th>Specialization</th>
-                                    <th>type</th>
+                                    <th>Role</th>
                                     <th>Experience</th>
-                                    <th>Mobile</th>
-                                    <th>Email</th>
+                                    <!-- <th>Mobile</th>
+                                    <th>Email</th> -->
                                     <!-- <th>Joining Date</th> -->
                                     <th>Action</th>
                                   </tr>

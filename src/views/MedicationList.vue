@@ -40,7 +40,7 @@
                       <thead>
                         <tr>
                           <th class="center">Drug</th>
-                          <th class="center">Dosage</th>
+                          <!-- <th class="center">Dosage</th> -->
                           <th class="center">Dosage Start</th>
                           <th class="center">Dosage Ends</th>
                           <th class="center">Dosage Times</th>
@@ -71,6 +71,7 @@
 import DashboardLayout from "@/layouts/DashboardLayout";
 import Medication from "@/components//medication/Medication";
 import medicationService from "@/services/medication.service";
+
 export default {
   components: {
     DashboardLayout,

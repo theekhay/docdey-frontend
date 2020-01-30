@@ -4,15 +4,15 @@
       <img src="../assets/img/user/user4.jpg" alt />
     </td>
     <td>{{ appointment.patient.name }}</td>
-    <td>
+    <!-- <td>
       <a href="mailto:shuxer@gmail.com">{{ appointment.patient.email }}</a>
-    </td>
-    <td class="center">{{ appointment.date }}</td>
-    <td class="center">{{ appointment.startTime }}</td>
-    <td class="center">{{ appointment.endTime }}</td>
-    <td>
+    </td> -->
+    <td class="center">{{ formatDate(appointment.date) }}</td>
+    <td class="center">{{ appointment.startTime }} - {{ appointment.endTime }}</td>
+    <!-- <td class="center">{{ appointment.endTime }}</td> -->
+    <!-- <td>
       <a href="tel:444543564">{{ appointment.patient.phoneNumber }}</a>
-    </td>
+    </td> -->
     <td>{{ appointment.specialist.name }}</td>
     <td>{{ appointment.condition }}</td>
     <td>
@@ -26,6 +26,7 @@
   </tr>
 </template>
 <script>
+import moment from "moment";
 export default {
   props: {
     appointment: {
@@ -48,11 +49,17 @@ export default {
           endTime: "09:30"
         };
       }
-    },
-    data() {
-      return {
-        appointment: this.appointment
-      };
+    }
+  },
+  data() {
+    return {
+      //appointment: this.appointment
+    };
+  },
+  methods: {
+    formatDate: function(date) {
+      console.log(date);
+      return moment(date).format("YYYY-MM-DD");
     }
   }
 };
