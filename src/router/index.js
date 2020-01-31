@@ -4,6 +4,7 @@ import VueRouter from "vue-router";
 import Dashboard from "@/views/Dashboard.vue";
 import Appointments from "@/views/Appointments.vue";
 import DrugCompatibilityCheck from "@/views/DrugCompatibilityCheck.vue";
+import DrugCreate from "@/views/DrugCompatibilityCheck.vue";
 import Drugs from "@/views/Drugs.vue";
 import Login from "@/views/Login.vue";
 import Lock from "@/views/Lock.vue";
@@ -57,6 +58,15 @@ const routes = [{
     path: "/drug/check",
     name: "drug-check",
     component: DrugCompatibilityCheck,
+    meta: {
+      requiresAuth: true
+    }
+
+  },
+  {
+    path: "/drug/create",
+    name: "drug-create",
+    component: DrugCreate,
     meta: {
       requiresAuth: true
     }

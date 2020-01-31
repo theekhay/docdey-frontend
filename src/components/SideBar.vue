@@ -31,11 +31,37 @@
               </div>
             </li>
 
-            <side-bar-menu name="Dashboard" link="/dashboard" icon="dashboard" />
+            <side-bar-menu
+              name="Dashboard"
+              link="/dashboard"
+              icon="dashboard"
+            />
             <side-bar-menu name="Appointments" link="/appointments" icon="assignment" />
             <side-bar-menu name="Drug check" link="/drug/check" icon="widgets" />
             <side-bar-menu name="Specialists" link="/specialists" icon="person" />
-            <side-bar-menu name="Drugs" link="/drugs" icon="dashboard" />
+            <!-- <side-bar-menu name="Drugs" link="/drugs" icon="dashboard" /> -->
+
+            <li class="nav-item active open">
+              <a href="#" class="nav-link nav-toggle">
+                <i class="material-icons">dashboard</i>
+                <span class="title">Drugs</span>
+                <span class="selected"></span>
+                <span class="arrow open"></span>
+              </a>
+              <ul class="sub-menu">
+                <li class="nav-item active open">
+                  <router-link to="/drug/create" class="nav-link">
+                    <span class="title">Create</span>
+                    <span class="selected"></span>
+                  </router-link>
+                </li>
+                <li class="nav-item">
+                  <router-link to="/drugs" class="nav-link">
+                    <span class="title">drugs</span>
+                  </router-link>
+                </li>
+              </ul>
+            </li>
 
             <li class="nav-item active open">
               <a href="#" class="nav-link nav-toggle">
@@ -58,6 +84,7 @@
                 </li>
               </ul>
             </li>
+
           </ul>
         </div>
       </div>
