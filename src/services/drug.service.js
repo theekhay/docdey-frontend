@@ -17,5 +17,10 @@ export default {
   getInteraction: function(drug1, drug2) {
     // Use vue-resource or any other http library to send your request
     return baseService.get(`${resource}/interaction/${drug1}/${drug2}`);
+  },
+
+  newDrug: function(drugData) {
+    // Use vue-resource or any other http library to send your request
+    return baseService.post(`${resource}/create`, drugData);
   }
 };

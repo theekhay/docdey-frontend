@@ -4,7 +4,7 @@ import VueRouter from "vue-router";
 import Dashboard from "@/views/Dashboard.vue";
 import Appointments from "@/views/Appointments.vue";
 import DrugCompatibilityCheck from "@/views/DrugCompatibilityCheck.vue";
-import DrugCreate from "@/views/DrugCompatibilityCheck.vue";
+import DrugCreate from "@/views/Drugs/DrugCreate.vue";
 import Drugs from "@/views/Drugs.vue";
 import Login from "@/views/Login.vue";
 import Lock from "@/views/Lock.vue";
