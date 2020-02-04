@@ -72,11 +72,11 @@
               <div class="card card-box">
                 <div class="card-head">
                   <header>Appointments</header>
-                  <div class="tools">
+                  <!-- <div class="tools">
                     <a class="fa fa-repeat btn-color box-refresh" href="javascript:;"></a>
                     <a class="t-collapse btn-color fa fa-chevron-down" href="javascript:;"></a>
                     <a class="t-close btn-color fa fa-times" href="javascript:;"></a>
-                  </div>
+                  </div> -->
                 </div>
                 <div class="card-body">
                   <div class="table-wrap">
@@ -88,7 +88,7 @@
                             <th>Name</th>
                             <th>Assigned Doctor</th>
                             <th>Diseases</th>
-                            <th>Room No</th>
+                            <th>Hospital</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -99,7 +99,7 @@
                             <td>
                               <span class="label label-sm label-success">Influenza</span>
                             </td>
-                            <td>101</td>
+                            <td>General Hospital</td>
                           </tr>
                           <tr>
                             <td>2</td>
@@ -108,7 +108,7 @@
                             <td>
                               <span class="label label-sm label-warning">Cholera</span>
                             </td>
-                            <td>105</td>
+                            <td>Osuntuyi</td>
                           </tr>
                           <tr>
                             <td>4</td>
@@ -117,7 +117,7 @@
                             <td>
                               <span class="label label-sm label-danger">Jaundice</span>
                             </td>
-                            <td>105</td>
+                            <td>Medville Hospital</td>
                           </tr>
                           <tr>
                             <td>5</td>
@@ -126,7 +126,7 @@
                             <td>
                               <span class="label label-sm label-success">Leptospirosis</span>
                             </td>
-                            <td>102</td>
+                            <td>Iru PHC</td>
                           </tr>
                           <tr>
                             <td>7</td>
@@ -135,7 +135,7 @@
                             <td>
                               <span class="label label-sm label-success">Typhoid</span>
                             </td>
-                            <td>107</td>
+                            <td>Reddington Hospital</td>
                           </tr>
                           <tr>
                             <td>8</td>
@@ -144,7 +144,7 @@
                             <td>
                               <span class="label label-sm label-danger">Malaria</span>
                             </td>
-                            <td>108</td>
+                            <td>Global Medical Centre</td>
                           </tr>
                         </tbody>
                       </table>

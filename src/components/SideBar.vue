@@ -57,7 +57,7 @@
                 </li>
                 <li class="nav-item">
                   <router-link to="/drugs" class="nav-link">
-                    <span class="title">drugs</span>
+                    <span class="title">Drugs</span>
                   </router-link>
                 </li>
               </ul>
@@ -79,7 +79,7 @@
                 </li>
                 <li class="nav-item">
                   <router-link to="/medication" class="nav-link">
-                    <span class="title">medicaitons</span>
+                    <span class="title">Medicaitons</span>
                   </router-link>
                 </li>
               </ul>

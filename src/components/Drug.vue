@@ -1,7 +1,9 @@
 <template>
   <tr>
     <td class="mdl-data-table__cell--non-numeric">{{ drug.name }}</td>
-    <td class="mdl-data-table__cell--non-numeric">{{ drug.commonBrands.join(", \n") }}</td>
+    <td class="mdl-data-table__cell--non-numeric">
+      {{ drug.commonBrands.join(", \n") }}
+    </td>
 
     <td>{{ drug.variants.join(", ") }}</td>
     <td>{{ drug.sideEffects.join(", ") }}</td>
